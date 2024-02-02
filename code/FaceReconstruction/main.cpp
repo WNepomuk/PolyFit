@@ -27,16 +27,25 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "../model/map_io.h"
 #include "../model/point_set_io.h"
 
-
+/* This program expects five command line arguments:
+ *
+ *      1. Data fitting parameter
+ *      2. Model coverage parameter
+ *      3. Model complexity parameter
+ *      => These 3 should add up to 1!
+ *
+ *      4. Path to the input file
+ *      5. Path to write the output file to
+*/
 int main(int argc, char **argv)
 {
     // Parse command line arguments
-    if (argc < 4) {
+    if (argc < 6) {
         std::cout << "To few arguments. Needed 3, got " << argc - 1 << "." << std::endl;
         return EXIT_FAILURE;
     }
 
-    if (argc > 4) {
+    if (argc > 6) {
         std::cout << "To many arguments. Needed 3, got " << argc - 1 << "." << std::endl;
         return EXIT_FAILURE;
     }
@@ -49,7 +58,7 @@ int main(int argc, char **argv)
         std::cout << "Arguments should sum up to 1." << std::endl;
         return EXIT_FAILURE;
     }
-
+    
     // initialize the logger (this is not optional)
     Logger::initialize();
 
@@ -58,9 +67,9 @@ int main(int argc, char **argv)
     auto fileLogger = FileLogger(fileName);
 
     // input point cloud file name
-    const std::string input_file = std::string(POLYFIT_CODE_DIR) + "/../data/toy_data.bvg";
+    const std::string input_file = argv[4];
     // output mesh file name
-    const std::string output_file = std::string(POLYFIT_CODE_DIR) + "/../data/toy_data_result.obj";
+    const std::string output_file = argv[5];
 
     // below are the default parameters (change these when necessary)
     Method::lambda_data_fitting = data_fitting; // 0.43

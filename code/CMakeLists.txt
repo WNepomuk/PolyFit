@@ -78,6 +78,7 @@ add_subdirectory(renderer)
 
 
 add_subdirectory(Example)
+add_subdirectory(FaceReconstruction)
 add_subdirectory(PolyFit)
 
 

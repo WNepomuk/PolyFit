@@ -14,7 +14,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set( QT5_ROOT_PATH CACHE PATH "Qt5 root directory (i.e. where the 'bin' folder lies)" )
+set( QT5_ROOT_PATH "/opt/homebrew/Cellar/qt@5/5.15.12" )
 if ( QT5_ROOT_PATH )
         list( APPEND CMAKE_PREFIX_PATH ${QT5_ROOT_PATH} )
 endif()
