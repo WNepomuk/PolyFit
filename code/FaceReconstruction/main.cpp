@@ -41,12 +41,12 @@ int main(int argc, char **argv)
 {
     // Parse command line arguments
     if (argc < 6) {
-        std::cout << "To few arguments. Needed 3, got " << argc - 1 << "." << std::endl;
+        std::cout << "To few arguments. Needed 5, got " << argc - 1 << "." << std::endl;
         return EXIT_FAILURE;
     }
 
     if (argc > 6) {
-        std::cout << "To many arguments. Needed 3, got " << argc - 1 << "." << std::endl;
+        std::cout << "To many arguments. Needed 5, got " << argc - 1 << "." << std::endl;
         return EXIT_FAILURE;
     }
 
